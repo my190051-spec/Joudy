@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Love</title>
+
+    <link rel="stylesheet" href="style2.css">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+<!-- 🎥 فيديو الخلفية -->
+<video autoplay muted loop id="bgVideo">
+    <source src="/video /1.mp4" type="video/mp4">
+</video>
+
+<!-- 🌫️ الضباب -->
+<div class="overlay"></div>
+
+<!-- 🧭 Navbar -->
+<nav class="navbar">
+
+    <div class="logo">My Love</div>
+
+    <div class="nav-right">
+        <i class="fa-solid fa-house"></i>
+
+        <a href="index.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+
+        <i class="fa-solid fa-plus" id="toggleBtn"></i>
+    </div>
+
+</nav>
+
+<div class="panel" id="panel">
+    <div class="panel-buttons">
+        <i class="fa-solid fa-envelope" id="msgBtn"></i>
+        <i class="fa-solid fa-music" id="musicBtn"></i>
+        <i class="fa-solid fa-video" id="videoBtn"></i>
+        <a href="page3.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+    </div>
+</div>
+
+<div class="notification" id="notification"></div>
+
+<div class="content-box" id="musicBox">
+    <audio id="audio" controls>
+        <source src="/music /2.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<!-- 🎬 صندوق الفيديو -->
+<div class="content-box" id="videoBox">
+    <video id="video" controls>
+        <source src="/video /2.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="love-container">
+    
+    <div class="love-header">
+      هيفضل يعد طول ما أحنا مع بعض
+    </div>
+    
+    <div class="love-box">
+        
+        <div class="time-box">
+            <i class="fa-solid fa-calendar"></i>
+            <span id="years">0</span>
+            <p>سنة</p>
+        </div>
+        
+        <div class="time-box">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span id="months">0</span>
+            <p>شهر</p>
+        </div>
+        
+        <div class="time-box">
+            <i class="fa-solid fa-clock"></i>
+            <span id="days">0</span>
+            <p>يوم</p>
+        </div>
+        
+        <div class="time-box">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <span id="hours">0</span>
+            <p>ساعة</p>
+        </div>
+        
+        <div class="time-box">
+            <i class="fa-solid fa-stopwatch"></i>
+            <span id="minutes">0</span>
+            <p>دقيقة</p>
+        </div>
+        
+        <div class="time-box">
+            <i class="fa-solid fa-bolt"></i>
+            <span id="seconds">0</span>
+            <p>ثانية</p>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="poem-box">
+        <p id="poem-text">
+            ࢪايتڪ في مـنـامـي فـاسـتيقـظ قـلـبي قـبل عـيني وعـاد الـشـوق يهمس بأسمڪ ولـم يبقاا فـي صـدࢪي إلا اشتياقڪ
+        </p>
+        <i class="fa-solid fa-copy copy-icon" onclick="copyPoem()"></i>
+    </div>
+
+</div>
+
+<div class="nasheed-box">
+    
+    <div class="nasheed-list" id="nasheedList">
+        
+        <!-- 🎵 نشيد -->
+        <div class="nasheed-card">
+            <p>حينا إلتقيك </p>
+            <audio controls src="/music /3.mp3"></audio>
+        </div>
+        
+        <div class="nasheed-card">
+            <p>قابلتك قدرا في دربي </p>
+            <audio controls src="/music /4.mp3"></audio>
+        </div>
+        
+        <div class="nasheed-card">
+            <p>عند قلبي </p>
+            <audio controls src="/music /5.mp3"></audio>
+        </div>
+        <div class="nasheed-card">
+            <p>لك يا أزهر كل القصدي</p>
+            <audio controls src="/music /6.mp3"></audio>
+        </div>
+         <div class="nasheed-card">
+            <p>و أخيرا أصبحته طبيبا</p>
+            <audio controls src="/music /7.mp3"></audio>
+        </div>
+         <div class="nasheed-card">
+            <p>يا طالبة العلم</p>
+            <audio controls src="/music /8.mp3"></audio>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="game-box">
+
+    <svg id="board" viewBox="0 0 300 300">
+        <line x1="100" y1="0" x2="100" y2="300"/>
+        <line x1="200" y1="0" x2="200" y2="300"/>
+        <line x1="0" y1="100" x2="300" y2="100"/>
+        <line x1="0" y1="200" x2="300" y2="200"/>
+    </svg>
+
+    <!-- 📊 النتيجة -->
+    <div class="score-box">
+        <div class="score x">X <span id="xScore">0</span></div>
+        <div class="divider"></div>
+        <div class="score o">O <span id="oScore">0</span></div>
+    </div>
+
+</div>
+
+<div class="cards-container">
+
+    <div class="cards-box">
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/1.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/2.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/3.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/4.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/5.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flip')">
+            <div class="card-inner">
+                <div class="card-front">دوسي</div>
+                <div class="card-back">
+                    <img src="/img/6.jpg">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="fav-header">حاجات بتحبيها</div>
+
+<div class="fav-container">
+
+    <div class="fav-box">
+
+        <div class="fav-card">
+            <img src="/img/7.jpg">
+            <div class="fav-name">وردك المفضل </div>
+        </div>
+
+        <div class="fav-card">
+            <img src="/img/8.jpg">
+            <div class="fav-name">كتبك المفضله</div>
+        </div>
+
+        <div class="fav-card">
+            <img src="/img/9.jpg">
+            <div class="fav-name">السماء </div>
+        </div>
+
+        <div class="fav-card">
+            <img src="/img/A1.jpg">
+            <div class="fav-name">فراشتك المفضله</div>
+        </div>
+
+        <div class="fav-card">
+            <img src="/img/A2.jpg">
+            <div class="fav-name">
+            خيل المفضل</div>
+        </div>
+
+        <div class="fav-card">
+            <img src="/img/A3.jpg">
+            <div class="fav-name"> أمطارك</div>
+        </div>
+        <div class="fav-card">
+            <img src="/img/A4.jpg">
+            <div class="fav-name">أكلتك المفضله</div>
+        </div>
+        <div class="fav-card">
+            <img src="/img/A5.jpg">
+            <div class="fav-name">ألوانك المفضله</div>
+        </div>
+        <div class="fav-card">
+            <img src="/img/A6.jpg">
+            <div class="fav-name">هدفك</div>
+        </div>
+                <div class="fav-card">
+            <img src="/img/A7.jpg">
+            <div class="fav-name">مشروبك المفضل</div>
+        </div>
+        <div class="fav-card">
+            <img src="/img/A8.jpg">
+            <div class="fav-name">شكولاتك المفضله</div>
+        </div>
+        <div class="fav-card">
+            <img src="/img/A9.jpg">
+            <div class="fav-name">حلمنا</div>
+        </div>  
+        <div class="fav-card">
+            <img src="/img/B4.jpg">
+            <div class="fav-name">شيخك المفضل</div>
+        </div>        
+          <div class="fav-card">
+            <img src="/img/B5.jpg">
+            <div class="fav-name">لونك عيونك</div>
+        </div>  
+            <div class="fav-card">
+            <img src="/img/F1.jpg">
+            <div class="fav-name">هدفنا</div>
+        </div>  
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="quran-header">
+    لعلها تڪون شفيعه لي وليڪي يوم القيامه 
+</div>
+
+<div class="quran-container">
+    <div class="quran-box">
+
+        <div class="quran-card">
+            <img src="img/B1.jpg">
+            <div class="audio-box">
+                <audio controls>
+                    <source src="/music /A1.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+
+        <div class="quran-card">
+            <img src="/img/B2.jpg">
+            <div class="audio-box">
+                <audio controls>
+                    <source src="/music /9.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+
+        <div class="quran-card">
+            <img src="/img/B3.jpg">
+            <div class="audio-box">
+                <audio controls>
+                    <source src="/music /A2.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+<!-- 🔝 عنوان الصندوق -->
+<div class="tasbehat-header">تسبحاتي </div>
+️</div>
+
+<!-- 📦 الصندوق -->
+<div class="tasbehat-container">
+
+    <!-- العدادات -->
+    <div class="tasbehat-box">
+        <div class="counter-display">0</div>
+    </div>
+
+    <!-- الأزرار -->
+    <div class="tasbehat-buttons">
+        <button class="inc-btn"><i class="fa-solid fa-plus"></i></button>
+        <button class="reset-btn"><i class="fa-solid fa-rotate-left"></i></button>
+    </div>
+
+</div>
+
+
+<!-- الزر لوحده تحت أي صندوق -->
+<div class="show-msg-wrapper">
+    <button class="show-msg-btn">اضغطي عليه</button>
+</div>
+
+<!-- الصندوق الشفاف للرسالة -->
+<div class="message-box" id="messageBox">
+    <p id="messageText"></p>
+</div>
+
+
+
+
+
+  <script> // =======================
+// 📌 العناصر الأساسية
+// =======================
+const toggleBtn = document.getElementById("toggleBtn");
+const panel = document.getElementById("panel");
+
+const msgBtn = document.getElementById("msgBtn");
+const musicBtn = document.getElementById("musicBtn");
+const videoBtn = document.getElementById("videoBtn");
+
+const notification = document.getElementById("notification");
+
+const musicBox = document.getElementById("musicBox");
+const audio = document.getElementById("audio");
+
+const videoBox = document.getElementById("videoBox");
+const video = document.getElementById("video");
+
+// 🛑 متغير الرسائل
+let msgInterval;
+
+// 🎧 كل الأصوات
+const audios = document.querySelectorAll("audio");
+
+
+// =======================
+// 🔘 زر الفتح
+// =======================
+if (toggleBtn && panel) {
+    toggleBtn.addEventListener("click", () => {
+        panel.classList.toggle("active");
+
+        toggleBtn.classList.toggle("fa-plus");
+        toggleBtn.classList.toggle("fa-xmark");
+
+        stopAll();
+    });
+}
+
+
+// =======================
+// 🛑 إيقاف كل حاجة
+// =======================
+function stopAll() {
+    clearInterval(msgInterval);
+
+    if (notification) notification.classList.remove("show");
+
+    if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
+    if (musicBox) musicBox.classList.remove("show");
+
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
+
+    if (videoBox) videoBox.classList.remove("show");
+}
+
+
+// =======================
+// 📩 الرسائل
+// =======================
+const messages = [
+"ڪـل مـا تـحـسي إنڪ مش قـادࢪة افتڪـࢪي إنـي شـايـفـڪ أقـوى واحدة فـي الـدنيا وهتنجحي غصب عن أي تـعـب",
+"أنـا مشتاقلڪ جدا بس مشتاق أشـوفڪ نـاجحة أڪتࢪ عـايـز أشـوف الـفـࢪحة فـي عيونڪ بعد ڪـل ده 😔❤️",
+"لـو الدنيا ضغطت عليڪي تعالي احڪيلي أنا هنا عشانڪ سندڪ قبل مـا أڪـون حبيبگ 🤍"
+];
+
+let msgIndex = 0;
+
+if (msgBtn && panel) {
+    msgBtn.onclick = () => {
+
+        panel.classList.remove("active");
+        stopAll();
+
+        msgIndex = 0;
+
+        function showMessage() {
+            if (msgIndex >= messages.length) {
+                clearInterval(msgInterval);
+                return;
+            }
+
+            if (notification) {
+                notification.innerText = messages[msgIndex];
+                notification.classList.add("show");
+
+                setTimeout(() => {
+                    notification.classList.remove("show");
+                }, 4000);
+            }
+
+            msgIndex++;
+        }
+
+        showMessage();
+        msgInterval = setInterval(showMessage, 5000);
+    };
+}
+
+
+// =======================
+// 🎵 الموسيقى
+// =======================
+if (musicBtn) {
+    musicBtn.onclick = () => {
+
+        if (panel) panel.classList.remove("active");
+        stopAll();
+
+        if (musicBox) musicBox.classList.add("show");
+        if (audio) audio.play();
+    };
+}
+
+if (audio) {
+    audio.onended = () => {
+        if (musicBox) musicBox.classList.remove("show");
+    };
+}
+
+
+// =======================
+// 🎬 الفيديو
+// =======================
+if (videoBtn) {
+    videoBtn.onclick = () => {
+
+        if (panel) panel.classList.remove("active");
+        stopAll();
+
+        if (videoBox) videoBox.classList.add("show");
+        if (video) video.play();
+    };
+}
+
+if (video) {
+    video.onended = () => {
+        if (videoBox) videoBox.classList.remove("show");
+    };
+}
+
+
+// =======================
+// 🔊 تشغيل صوت واحد فقط
+// =======================
+audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+        audios.forEach(other => {
+            if (other !== audio) {
+                other.pause();
+                other.currentTime = 0;
+            }
+        });
+    });
+});
+
+
+// =======================
+// 📅 العداد
+// =======================
+const startDate = new Date("2024-07-05T00:00:00");
+
+function updateLoveCounter() {
+
+    const now = new Date();
+
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+    if (days < 0) {
+        months--;
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    document.getElementById("years").innerText = years;
+    document.getElementById("months").innerText = months;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+setInterval(updateLoveCounter, 1000);
+updateLoveCounter();
+
+
+// =======================
+// 📋 نسخ الشعر
+// =======================
+function copyPoem() {
+    const poem = document.getElementById("poem-text");
+    const icon = document.querySelector(".copy-icon");
+
+    if (!poem || !icon) return;
+
+    navigator.clipboard.writeText(poem.innerText)
+        .catch(err => console.error("خطأ في النسخ", err));
+
+    icon.style.transform = "scale(1.2)";
+    icon.style.opacity = "1";
+
+    setTimeout(() => {
+        icon.style.transform = "scale(1)";
+        icon.style.opacity = "0.8";
+    }, 150);
+}
+
+
+// =======================
+// 🎧 الناشيد (3D تحديد)
+// =======================
+const box = document.querySelector(".nasheed-box");
+const cards = document.querySelectorAll(".nasheed-card");
+
+if (box) {
+    box.addEventListener("scroll", () => {
+
+        cards.forEach(card => card.classList.remove("active"));
+
+        const boxCenter = box.scrollTop + box.clientHeight / 2;
+
+        let closest = null;
+        let closestDistance = Infinity;
+
+        cards.forEach(card => {
+            const cardCenter = card.offsetTop + card.offsetHeight / 2;
+            const distance = Math.abs(boxCenter - cardCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closest = card;
+            }
+        });
+
+        if (closest) closest.classList.add("active");
+    });
+}
+
+
+// =======================
+// 🎮 لعبة XO
+// =======================
+const board = document.getElementById("board");
+
+if (board) {
+
+let cells = Array(9).fill(null);
+let xScore = 0;
+let oScore = 0;
+let isPlaying = true;
+
+function drawX(i) {
+    const x = (i % 3) * 100;
+    const y = Math.floor(i / 3) * 100;
+
+    const l1 = document.createElementNS("http://www.w3.org/2000/svg","line");
+    l1.setAttribute("x1", x+20);
+    l1.setAttribute("y1", y+20);
+    l1.setAttribute("x2", x+80);
+    l1.setAttribute("y2", y+80);
+    l1.setAttribute("class","cell-x");
+
+    const l2 = document.createElementNS("http://www.w3.org/2000/svg","line");
+    l2.setAttribute("x1", x+80);
+    l2.setAttribute("y1", y+20);
+    l2.setAttribute("x2", x+20);
+    l2.setAttribute("y2", y+80);
+    l2.setAttribute("class","cell-x");
+
+    board.appendChild(l1);
+    board.appendChild(l2);
+}
+
+function drawO(i) {
+    const x = (i % 3) * 100 + 50;
+    const y = Math.floor(i / 3) * 100 + 50;
+
+    const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("cx", x);
+    c.setAttribute("cy", y);
+    c.setAttribute("r", 30);
+    c.setAttribute("class","cell-o");
+
+    board.appendChild(c);
+}
+
+function checkWin(p) {
+    const w = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+    ];
+    return w.some(a => a.every(i => cells[i] === p));
+}
+
+function aiMove() {
+    const empty = cells.map((v,i)=>v?null:i).filter(v=>v!==null);
+
+    for (let i of empty) {
+        cells[i] = "X";
+        if (checkWin("X")) return i;
+        cells[i] = null;
+    }
+
+    for (let i of empty) {
+        cells[i] = "O";
+        if (checkWin("O")) {
+            cells[i] = "X";
+            return i;
+        }
+        cells[i] = null;
+    }
+
+    if (!cells[4]) return 4;
+
+    return empty[0];
+}
+
+function endGame(winner) {
+    isPlaying = false;
+
+    if (winner === "X") xScore++;
+    if (winner === "O") oScore++;
+
+    document.getElementById("xScore").textContent = xScore;
+    document.getElementById("oScore").textContent = oScore;
+
+    setTimeout(resetGame, 1000);
+}
+
+function resetGame() {
+    cells = Array(9).fill(null);
+    isPlaying = true;
+
+    board.innerHTML = `
+        <line x1="100" y1="0" x2="100" y2="300"/>
+        <line x1="200" y1="0" x2="200" y2="300"/>
+        <line x1="0" y1="100" x2="300" y2="100"/>
+        <line x1="0" y1="200" x2="300" y2="200"/>
+    `;
+}
+
+board.addEventListener("click", e => {
+    if (!isPlaying) return;
+
+    const rect = board.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const col = Math.floor(x / 100);
+    const row = Math.floor(y / 100);
+    const i = row * 3 + col;
+
+    if (cells[i]) return;
+
+    cells[i] = "O";
+    drawO(i);
+
+    if (checkWin("O")) return endGame("O");
+
+    isPlaying = false;
+
+    setTimeout(() => {
+        const move = aiMove();
+        cells[move] = "X";
+        drawX(move);
+
+        if (checkWin("X")) return endGame("X");
+
+        if (cells.every(c => c)) return endGame(null);
+
+        isPlaying = true;
+    }, 1000);
+});
+
+}
+
+
+
+
+
+
+
+
+const display = document.querySelector(".counter-display");
+const incBtn = document.querySelector(".inc-btn");
+const resetBtn = document.querySelector(".reset-btn");
+
+// جلب الرقم من التخزين المحلي
+let count = localStorage.getItem("tasbehatCount");
+if(!count) count = 0;
+display.textContent = count;
+
+// زيادة الرقم
+incBtn.addEventListener("click", () => {
+    count++;
+    display.textContent = count;
+    localStorage.setItem("tasbehatCount", count);
+});
+
+// إعادة الصفر
+resetBtn.addEventListener("click", () => {
+    count = 0;
+    display.textContent = count;
+    localStorage.setItem("tasbehatCount", count);
+});
+
+
+
+
+
+
+
+const showBtn = document.querySelector(".show-msg-btn");
+const messageBox = document.getElementById("messageBox");
+const messageText = document.getElementById("messageText");
+
+// الرسالة التدريجية
+const message = "ازيك ي جودي عامله يارب تكوني بخير دايما م عارف ابدا منين بس انا بحبك مووووت م كلمه وخلاص وم عارف انتي عملتي فيا اي لغاية موصلت ليكي عشقك كعشقك زليخه لي يوسف و حب الرسول عليه افضل الصلاة والسلام لي عائشة انا نفسي ابقاا اب ليكي م حبيب ولا صديق ابقاا اب بطمن بنته وقت حزنها ويفرح وقت فرحتها ويبقاا فخور بيها وابقاا سند ليكي نفسي اعمل اي حاجه ليكي (كم من الاشتياق أنتظر ) بحبك قوووي  يروحي وصاحبة عيون الغزال و أميرتي  و ملاكي وكل حاجه ليا قوليلي زاي اصبر علي اشتياقي ليكي ";
+
+// حدث الضغط على الزر
+showBtn.addEventListener("click", () => {
+    showBtn.style.display = "none"; // الزر يختفي
+    messageBox.style.display = "block"; // الصندوق يظهر
+    messageText.textContent = ""; // فرغ النص
+
+    let i = 0;
+    function typeWriter() {
+        if (i < message.length) {
+            messageText.textContent += message.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100); // سرعة الكتابة
+        }
+    }
+    typeWriter();
+});
+
+
+</script>
+</body>
+</html>
